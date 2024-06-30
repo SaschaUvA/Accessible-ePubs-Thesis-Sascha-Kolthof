@@ -9,19 +9,19 @@
 % Options:
 %% `nolinenumbering` - If you want to remove line numbering on submission
 %% `draftmargins` - If you would like to give your reviewer more space for comments
-\documentclass[]{thesisdesign}
+\documentclass[nolinenumbering]{thesisdesign}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT METADATA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Thesis related entries
-\title{Fill In Your Title}
-\subtitle{Submitted on: \textbf{DD-MM-YYYY}}
+\title{Making EPUBs compliant with the WCAG 2.2 guidelines}
+\subtitle{Submitted on: \textbf{05-03-2024}}
 
 % Author data
-\authorname{Your Name}
-\authoremail{your@student.mail}
+\authorname{Sascha Kolthof}
+\authoremail{sascha.kolthof@student.uva.nl}
 % ACM-sepecific entries
 \affiliation{
     \institution{\thesisinstitution}
@@ -30,8 +30,8 @@
 }
 
 % Supervisor data
-\authorname{UvA Supervisor Name}
-\authoremail{supervisor@uva.nl}
+\authorname{Maarten Marx}
+\authoremail{M.J.Marx@uva.nl}
 % ACM-sepecific entries
 \affiliation{
     \institution{\thesisinstitution}
@@ -45,12 +45,13 @@
 \begin{document}
 
 \pagestyle{plain}
-\setcounter{page}{0}
+\setcounter{page}{1}
 \fixemptypage
 
 \maketitle
 
 % Sections; Try to stick to this setup
+\input{sections/1-thesis-design/0-abstract.tex}
 \input{sections/1-thesis-design/1-introduction.tex}
 \input{sections/1-thesis-design/2-related-work.tex}
 \input{sections/1-thesis-design/3-methodology.tex}

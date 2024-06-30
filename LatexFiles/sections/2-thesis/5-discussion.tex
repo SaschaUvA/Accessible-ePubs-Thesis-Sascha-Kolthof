@@ -1,4 +1,26 @@
 \section{Discussion}
 \label{sec:discussion}
-% Compare your results with the state-of-the-art and reflect upon the results and limitations of the study. You can already hint at future work to which you come back in the conclusion section.
-Write your discussion here. Do not forget to use sub-sections. Normally, the discussion starts with comparing your results to other studies as precisely as possible. The limitations should be reflected upon in terms such as reproducibility,  scalability,  generalizability,  reliability  and  validity. It is also important to mention ethical concerns.
+This section will expand on the results by comparing the findings to the existing research. Additionally, the limitations and constraints of the research are discussed, forming the foundation of potential areas for future work. 
+
+\subsection{Comparison to existing research}
+No other methods currently exist that deal with automating EPUB accessibility. Thus, the results are compared to research that uses HTML refactoring to improve accessibility on web pages, as this is the closest area of research. The target error reduction percentage is taken into account here, as the different research articles have their own methods of finding accessibility errors. Because of this, a comparison of the total error reduction percentage would be arbitrary.
+
+Ferati and Sulejmani reached a target error reduction percentage of 48\%. Their methods were also built on HTML refactoring and focused on enriching links, images, and navigation. The accessibility errors were found using the aXe tool, a similar tool to the Ace checker from Daisy \cite{Ferati2016}.
+
+Ikhsan and Candra were able to reduce the target errors in their research by between 53.6\% and 98.2\% depending on the website to which their tool was applied. This lead to an overall target error reduction of 75.4\%. They developed a proprietary HTML accessibility error finder that was able to find 1284 errors across five web pages, forming the data for the research \cite{Ikhsan2018}.
+
+Zhang et al., aimed to add alt-text to SVG buttons that did not yet have alt-text. The study looked at 30 different public websites, and found 556 SVG buttons in need of an alt-text. In 511 of these cases, the methodology was able to correctly provide alt-text, giving a 91.9\% target error reduction. This alt-text was then added to the web page through HTML refactoring. \cite{Zhang2024}.
+
+The methodology developed in this thesis was able to reduce the target errors by 97.8\%. Additionally, the reduction in errors was labeled to be statistically significant. In comparison with the other research articles occupying this field, AccessiPub fares exceptionally well. This demonstrates that this thesis neatly slots into the targeted research gap. It does this by successfully being the first venture into automatically refactoring EPUBs and enhancing their accessibility in a way that performs better than similar techniques on HTML files.
+
+
+\subsection{Limitations and constraints}
+This thesis also faced some notable limitations and constraints in the development of AccessiPub. These limitations were tied to the used libraries and tools, namely EbookLib and the Ace checker. In this subsection, these will be discussed, along with their impact on the results.
+
+\subsubsection{EbookLib}
+For EPUB disassembly and reassembly, the EbookLib library was chosen. Its powerful feature-set also allowed for page lists to be constructed for EPUBs that did not have one yet. However, it did bring some limitations with it. One major factor was that information in the \texttt{<head>} tag was lost, along with certain metadata, during EPUB reassembly. These limitations were circumvented as described in the \textit{EPUB patching} step of the Experimental Setup, but these workarounds proved to be time-intensive and did not cover all issues.
+
+Additionally, the results were further impacted by EbookLib as 6 of the 9 unprocessed EPUBs were not processed because of EbookLib errors. Making use of a more simple library such as ZipFile can help with these specific issues, as it does not alter the source files. This option was not considered in this thesis due to time constraints, as the issues caused by EbookLib were not discovered until much later in the process. Porting the pagelist creation functionality from EbookLib to ZipFile would also require a lot of development time.
+
+\subsubsection{Ace checker}
+The Ace checker also causes some limitations for the results of this thesis. In some cases, the Ace checker fails to generate a valid report. 3 of the 9 unprocessed EPUBs remained unprocessed because the Ace checker could not handle the EPUB file that had images in the root folder. It is also important to mention that an Ace report without any reported errors does not necessarily mean that the EPUB is fully accessible. Not all accessibility tests are able to be automated. Despite this, the Ace checker remains state-of-the-art, because it is grounded in years of accessibility research and no comparison currently exists. Moreover, the Ace checker is still excellent at being able to make quantitative analyses possible for automating EPUB accessibility enhancement.

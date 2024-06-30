@@ -1,16 +1,25 @@
 \section{Introduction}
 \label{sec:introduction}
-% Mention scientific context/field, problem statement, research gap and (sub) research question(s). 
-Write your introduction here. It should be immediately clear how your proposed contribution is scientifically relevant and fills the research gap.
- \TODO{This is a TODO} This is a test citation \cite{Gruber1995}
+Ebooks are a great way of making regular books more portable and convenient. An EPUB (shorthand for \textit{electronic publication}) is an open-to-use file format for ebooks, developed by the International Digital Publishing Forum (IDPF), that focuses on reflowable content. Reflowable content is a concept where alterations, like increasing the font size, make content on the page flow dynamically to accommodate this change. For people with special needs, this offers new ways for books and other literature to be more accessible. EPUBs are also less cumbersome to read and transport for people with visual impairments than bulky braille books or books with large fonts. 
 
-Towards the end of the introduction, you should also add your \textit{preliminary} \textbf{reasearch questions (RQ)} here. You may want to state your main RQ like this:
+Additionally, certain accessibility tools can leverage the EPUB file structure, making it the preferred option for people with disabilities \cite{Kasdorf2018}. This can include: text-to-speech devices (screen readers), math-specific screen readers, and braille displays \cite{Giusti2016, Kasdorf2018, Kim2019}.
+EPUBs have enormously higher accessibility potential compared to other file formats, such as PDFs. Bartalesi and Leporini explored this in their study, by evaluating 25 users, of which 18 were visually impaired. They concluded that 88\% of the tested users preferred the EPUB format over the PDF format \cite{Bartalesi2015}. Since then the EPUB specification has evolved even further in providing good accessibility.
 
-\noindent\textit{To what extent can a master thesis template enhance the quality of the final thesis?}\REMARK{This is a remark}
+The COVID-19 pandemic forced people to stay at home and tend to online libraries instead of physical libraries. This increased the amount of EPUB resources in libraries, simultaneously highlighting the issue with the current state of EPUB accessibility \cite{Chee2022}. Specifically, many EPUBs currently do not adhere to the latest accessibility standards posed by the EPUB Accessibility standard. This standard has been created under the name of the World Wide Web Consortium (W3C), the same entity that brought forth the Web Content Accessibility Guidelines (WCAG). 
 
-You can then list the sub-questions as:
+While some research exists on what has to be done to improve the current accessibility landscape for EPUBs, most fail to go into how to make these improvements \cite{Chee2022}. Others, like Campoverde-Molina et al. \cite{Campoverde2020} propose a manual approach by urging educational institutions to undertake projects that improve the accessibility of their resources. This is not a viable solution for the problem, due to the large amount of EPUBs being available. More crucially for this thesis, current academia has not explored automating the process of making EPUBs more accessible so that it can be done on a large, cost-effective scale.
+
+This thesis aims to fill this gap and do a first venture into this specific area by formulating a new methodology to automatically make EPUBs more accessible. This complete start-to-finish pipeline is named AccessiPub. Multiple steps need to be taken in order to formulate this new methodology. First, a way of locating accessibility errors within EPUBs is drawn up with the help of the Ace checker. Then, we draw from existing literature on increasing web content accessibility due to the relation between EPUBs and regular web content. This investigation into the existing literature yields HTML refactoring, a method that we adapted to fit EPUBs. These alterations are integrated with a novel way of using EbookLib and ZipFile to disassemble and reassemble an EPUB's content files. These methods are combined to form a start-to-finish pipeline. This pipeline can take an EPUB, analyze it for fixable errors, and repair these, while making sure to retain the integrity of the EPUB. This leads to the main research question of this thesis: \\
+
+\noindent\textit{To what extent can EPUB accessibility errors automatically be repaired to improve the accessibility of an EPUB without harming its original integrity?} \\
+
+\noindent This research question will be answered with the help of the following five subquestions:
 \begin{itemize}
-    \item How does the structure of the template influence the final grading?
-    \item To what extent is textual guidance sufficient for structured working?
-    \item \dots
+    \item How can accessibility errors be located inside an EPUB exactly?
+    \item How can HTML refactoring be adapted to fit the EPUB file format?
+    \item How can the modified content be reconstructed into a functioning EPUB?
+    \item To what extent does the devised methodology reduce accessibility errors in EPUBs?
+    \item To what extent can the original integrity of the EPUB be upheld?\\
 \end{itemize}
+
+\noindent The first three subquestions are methodological, while the latter two will be answered by the experiments. 
